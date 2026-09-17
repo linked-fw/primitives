@@ -10,9 +10,9 @@ Prefix.add('radix', base);
 
 export const loadData = () => {
   //@ts-ignore
-  return import(/* @vite-ignore */ dataFile, { with: { type: 'json' } }).then(
-    (data) => data.default
-  );
+  return import('../data/primitives.json', {
+    with: { type: 'json' },
+  }).then((data) => data.default);
 };
 
 export const ns = createNameSpace(base);
