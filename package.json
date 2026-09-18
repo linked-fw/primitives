@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/linked-cm/primitives.git"
+    "url": "git+https://github.com/linked-fw/primitives.git"
   },
   "version": "1.2.0",
   "linkedPackage": true,
