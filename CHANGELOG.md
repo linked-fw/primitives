@@ -1,5 +1,11 @@
 # @\_linked/primitives
 
+## 1.2.1
+
+### Patch Changes
+
+- [#24](https://github.com/linked-fw/primitives/pull/24) [`781aebc`](https://github.com/linked-fw/primitives/commit/781aebcdd83d3222acf9a00e54175687bb91b848) Thanks [@flyon](https://github.com/flyon)! - Declare npm as the package manager for this repo, convert the build scripts off `yarn`, and mark `package-lock.json` as a generated file.
+
 ## 1.2.0
 
 ### Minor Changes
