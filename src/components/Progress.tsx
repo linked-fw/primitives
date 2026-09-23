@@ -10,7 +10,7 @@ function extend<C extends React.FunctionComponent<any>>(
   baseClassName: string
 ) {
   let extended = React.forwardRef<
-    React.ElementRef<C>,
+    React.ComponentRef<C>,
     React.ComponentPropsWithoutRef<C>
   >(({ className, ...props }, ref) =>
     React.createElement(Component, {
@@ -26,7 +26,7 @@ function extend<C extends React.FunctionComponent<any>>(
 const Indicator = extend(ProgressPrimitive.Indicator, style.Indicator);
 
 const Root = React.forwardRef<
-  React.ElementRef<typeof ProgressPrimitive.Root>,
+  React.ComponentRef<typeof ProgressPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root>
 >(({ className, value, ...props }, ref) => (
   <ProgressPrimitive.Root

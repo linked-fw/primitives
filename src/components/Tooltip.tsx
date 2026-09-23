@@ -10,7 +10,7 @@ function extend<C extends React.FunctionComponent<any>>(
   baseClassName: string
 ) {
   let extended = React.forwardRef<
-    React.ElementRef<C>,
+    React.ComponentRef<C>,
     React.ComponentPropsWithoutRef<C>
   >(({ className, ...props }, ref) =>
     React.createElement(Component, {
@@ -29,7 +29,7 @@ const Trigger = TooltipPrimitive.Trigger;
 const Arrow = extend(TooltipPrimitive.Arrow, style.Arrow);
 
 const Content = React.forwardRef<
-  React.ElementRef<typeof TooltipPrimitive.Content>,
+  React.ComponentRef<typeof TooltipPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content>
 >(({ className, sideOffset = 4, ...props }, ref) => (
   <TooltipPrimitive.Content

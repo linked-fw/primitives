@@ -195,7 +195,7 @@ const Trigger = forwardRef<
 Trigger.displayName = 'MultiSelectorTrigger';
 
 const Input = forwardRef<
-  React.ElementRef<typeof CommandPrimitive.Input>,
+  React.ComponentRef<typeof CommandPrimitive.Input>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.Input>
 >(({ className, ...props }, ref) => {
   const { setOpen, inputValue, setInputValue, activeIndex, setActiveIndex } =
@@ -235,7 +235,7 @@ const Content = forwardRef<
 Content.displayName = 'MultiSelectorContent';
 
 const List = forwardRef<
-  React.ElementRef<typeof CommandPrimitive.List>,
+  React.ComponentRef<typeof CommandPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.List>
 >(({ className, children }, ref) => {
   return (
@@ -251,7 +251,7 @@ const List = forwardRef<
 List.displayName = 'MultiSelectorList';
 
 const Item = forwardRef<
-  React.ElementRef<typeof CommandPrimitive.Item>,
+  React.ComponentRef<typeof CommandPrimitive.Item>,
   { value: string } & React.ComponentPropsWithoutRef<
     typeof CommandPrimitive.Item
   >

@@ -12,7 +12,7 @@ const Trigger = HoverCardPrimitive.Trigger;
 const Portal = HoverCardPrimitive.Portal;
 
 const Arrow = React.forwardRef<
-  React.ElementRef<typeof HoverCardPrimitive.Arrow>,
+  React.ComponentRef<typeof HoverCardPrimitive.Arrow>,
   React.ComponentPropsWithoutRef<typeof HoverCardPrimitive.Arrow>
 >(({ className, ...props }, ref) => (
   <HoverCardPrimitive.Arrow
@@ -25,7 +25,7 @@ const Arrow = React.forwardRef<
 Arrow.displayName = HoverCardPrimitive.Content.displayName;
 
 const Content = React.forwardRef<
-  React.ElementRef<typeof HoverCardPrimitive.Content>,
+  React.ComponentRef<typeof HoverCardPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof HoverCardPrimitive.Content>
 >(({ className, align = 'center', sideOffset = 4, ...props }, ref) => (
   <HoverCardPrimitive.Content

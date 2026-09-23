@@ -11,7 +11,7 @@ function extend<C extends React.FunctionComponent<any>>(
   baseClassName: string
 ) {
   let extended = React.forwardRef<
-    React.ElementRef<C>,
+    React.ComponentRef<C>,
     React.ComponentPropsWithoutRef<C>
   >(({ className, ...props }, ref) =>
     React.createElement(Component, {

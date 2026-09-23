@@ -10,7 +10,7 @@ function extend<C extends React.FunctionComponent<any>>(
   baseClassName: string
 ) {
   let extended = React.forwardRef<
-    React.ElementRef<C>,
+    React.ComponentRef<C>,
     React.ComponentPropsWithoutRef<C>
   >(({ className, ...props }, ref) =>
     React.createElement(Component, {
@@ -35,7 +35,7 @@ const Separator = extend(MenubarPrimitive.Separator, style.Separator);
 const Arrow = extend(MenubarPrimitive.Arrow, style.Arrow);
 
 const SubTrigger = React.forwardRef<
-  React.ElementRef<typeof MenubarPrimitive.SubTrigger>,
+  React.ComponentRef<typeof MenubarPrimitive.SubTrigger>,
   React.ComponentPropsWithoutRef<typeof MenubarPrimitive.SubTrigger> & {
     inset?: boolean;
   }
@@ -67,7 +67,7 @@ const SubTrigger = React.forwardRef<
 SubTrigger.displayName = MenubarPrimitive.SubTrigger.displayName;
 
 const Content = React.forwardRef<
-  React.ElementRef<typeof MenubarPrimitive.Content>,
+  React.ComponentRef<typeof MenubarPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Content>
 >(
   (
@@ -89,7 +89,7 @@ const Content = React.forwardRef<
 Content.displayName = MenubarPrimitive.Content.displayName;
 
 const Item = React.forwardRef<
-  React.ElementRef<typeof MenubarPrimitive.Item>,
+  React.ComponentRef<typeof MenubarPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Item> & {
     inset?: boolean;
   }
@@ -103,7 +103,7 @@ const Item = React.forwardRef<
 Item.displayName = MenubarPrimitive.Item.displayName;
 
 const CheckboxItem = React.forwardRef<
-  React.ElementRef<typeof MenubarPrimitive.CheckboxItem>,
+  React.ComponentRef<typeof MenubarPrimitive.CheckboxItem>,
   React.ComponentPropsWithoutRef<typeof MenubarPrimitive.CheckboxItem>
 >(({ className, children, checked, ...props }, ref) => (
   <MenubarPrimitive.CheckboxItem
@@ -136,7 +136,7 @@ const CheckboxItem = React.forwardRef<
 CheckboxItem.displayName = MenubarPrimitive.CheckboxItem.displayName;
 
 const RadioItem = React.forwardRef<
-  React.ElementRef<typeof MenubarPrimitive.RadioItem>,
+  React.ComponentRef<typeof MenubarPrimitive.RadioItem>,
   React.ComponentPropsWithoutRef<typeof MenubarPrimitive.RadioItem>
 >(({ className, children, ...props }, ref) => (
   <MenubarPrimitive.RadioItem
@@ -166,7 +166,7 @@ const RadioItem = React.forwardRef<
 RadioItem.displayName = MenubarPrimitive.RadioItem.displayName;
 
 const Label = React.forwardRef<
-  React.ElementRef<typeof MenubarPrimitive.Label>,
+  React.ComponentRef<typeof MenubarPrimitive.Label>,
   React.ComponentPropsWithoutRef<typeof MenubarPrimitive.Label> & {
     inset?: boolean;
   }
