@@ -1,5 +1,24 @@
 # @\_linked/primitives
 
+## 1.2.3
+
+### Patch Changes
+
+- [#28](https://github.com/linked-fw/primitives/pull/28) [`23878a3`](https://github.com/linked-fw/primitives/commit/23878a34f6b8c5a720f280f0a2658f785babc0f1) Thanks [@flyon](https://github.com/flyon)! - Compiles under React 19.
+
+  React 19 removed `React.ElementRef`. Thirty components used it to type their
+  forwarded ref, so **this package has not compiled since the React 19 upgrade**
+  — and because its `lib/` was left behind at the last successful build, that was
+  invisible until a consumer failed to resolve an asset the stale build never
+  emitted:
+
+  ```
+  Could not resolve "./Tooltip.module.css"
+    from "packages/primitives/lib/esm/components/Tooltip.js"
+  ```
+
+  `React.ComponentRef` is the same type under its current name.
+
 ## 1.2.2
 
 ### Patch Changes
