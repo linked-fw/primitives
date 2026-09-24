@@ -6,7 +6,7 @@ import { cl } from '@_linked/react/utils/ClassNames';
 import * as RadioGroupPrimitive from '@radix-ui/react-radio-group';
 
 const Root = React.forwardRef<
-  React.ElementRef<typeof RadioGroupPrimitive.Root>,
+  React.ComponentRef<typeof RadioGroupPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>
 >(({ className, ...props }, ref) => {
   return (
@@ -20,7 +20,7 @@ const Root = React.forwardRef<
 Root.displayName = RadioGroupPrimitive.Root.displayName;
 
 const Item = React.forwardRef<
-  React.ElementRef<typeof RadioGroupPrimitive.Item>,
+  React.ComponentRef<typeof RadioGroupPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>
 >(({ className, ...props }, ref) => {
   return (

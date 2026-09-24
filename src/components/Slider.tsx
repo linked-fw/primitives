@@ -10,7 +10,7 @@ function extend<C extends React.FunctionComponent<any>>(
   baseClassName: string
 ) {
   let extended = React.forwardRef<
-    React.ElementRef<C>,
+    React.ComponentRef<C>,
     React.ComponentPropsWithoutRef<C>
   >(({ className, ...props }, ref) =>
     React.createElement(Component, {
@@ -28,7 +28,7 @@ const Range = extend(SliderPrimitive.Range, style.Range);
 const Thumb = extend(SliderPrimitive.Thumb, style.Thumb);
 
 const Root = React.forwardRef<
-  React.ElementRef<typeof SliderPrimitive.Root>,
+  React.ComponentRef<typeof SliderPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof SliderPrimitive.Root>
 >(({ className, 'aria-label': ariaLabel, 'aria-disabled': ariaDisabled, ...props }, ref) => (
   // Self-contained single-thumb slider. Forward the accessible name / disabled

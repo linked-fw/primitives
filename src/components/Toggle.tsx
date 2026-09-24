@@ -6,7 +6,7 @@ import { cl } from '@_linked/react/utils/ClassNames';
 import * as TogglePrimitive from '@radix-ui/react-toggle';
 
 const Root = React.forwardRef<
-  React.ElementRef<typeof TogglePrimitive.Root>,
+  React.ComponentRef<typeof TogglePrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof TogglePrimitive.Root>
 >(({ className, ...props }, ref) => (
   <TogglePrimitive.Root
