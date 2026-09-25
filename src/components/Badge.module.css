@@ -21,6 +21,8 @@
 /* ── color ─────────────────────────────────────────────────────────────── */
 .neutral { --_badge-color: var(--badge-color-neutral, #64748b); }
 .primary { --_badge-color: var(--badge-color-primary, var(--primary, #4f46e5)); }
+.secondary { --_badge-color: var(--badge-color-secondary, var(--secondary, #475569)); }
+.accent  { --_badge-color: var(--badge-color-accent, var(--control-accent, var(--primary, #4f46e5))); }
 .success { --_badge-color: var(--badge-color-success, #15803d); }
 .warning { --_badge-color: var(--badge-color-warning, #b45309); }
 .danger  { --_badge-color: var(--badge-color-danger, #b91c1c); }
