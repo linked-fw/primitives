@@ -1,5 +1,16 @@
 # @\_linked/primitives
 
+## 1.3.1
+
+### Patch Changes
+
+- [#34](https://github.com/linked-fw/primitives/pull/34) [`6514c31`](https://github.com/linked-fw/primitives/commit/6514c31aef96a8b4d087e1edf48aa86abe693b87) Thanks [@flyon](https://github.com/flyon)! - Add a root `types` field so a bare import gets types under node10 resolution.
+
+  There was no `types`/`typings` field at all, so a `moduleResolution: node10` consumer doing
+  `import … from '@_linked/primitives'` got `TS2307` — `exports` is ignored under node10. The value
+  `index.d.ts` is redirected by the existing `typesVersions` to `lib/esm/index.d.ts`, matching the
+  sibling packages.
+
 ## 1.3.0
 
 ### Minor Changes
