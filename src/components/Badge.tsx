@@ -11,7 +11,8 @@ import { Slot } from '@radix-ui/react-slot';
  * swap variation without new components —
  *
  *   variant  solid | soft | outline | ghost      fill strength
- *   color    neutral | primary | success | warning | danger | info
+ *   color    neutral | primary | accent | secondary |
+ *            success | warning | danger | info
  *   size     small | medium | large
  *   shape    pill | rounded
  *   dot      leading status dot in the badge color
@@ -22,10 +23,25 @@ import { Slot } from '@radix-ui/react-slot';
  * variables with working fallbacks, so it renders sensibly out of the box and
  * apps re-skin it from their theme without touching the component.
  */
+/**
+ * Every colour here has a `--_badge-color` rule in Badge.module.css — the union
+ * and the stylesheet are one list, so a colour can never type-check its way to
+ * an unstyled badge.
+ */
+export type BadgeColor =
+  | 'neutral'
+  | 'primary'
+  | 'secondary'
+  | 'accent'
+  | 'success'
+  | 'warning'
+  | 'danger'
+  | 'info';
+
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   asChild?: boolean;
   variant?: 'solid' | 'soft' | 'outline' | 'ghost';
-  color?: 'neutral' | 'primary' | 'success' | 'warning' | 'danger' | 'info';
+  color?: BadgeColor;
   size?: 'small' | 'medium' | 'large';
   shape?: 'pill' | 'rounded';
   /** Leading status dot in the badge color. */

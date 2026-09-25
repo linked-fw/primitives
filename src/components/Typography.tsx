@@ -2,9 +2,15 @@ import * as React from 'react';
 
 import style from './Typography.module.css';
 import { cl } from '@_linked/react/utils/ClassNames';
+import type { TextElement } from './elements.js';
 
 interface TypographyProps extends React.HtmlHTMLAttributes<HTMLElement> {
-  as?: 'span' | 'label' | 'p' | 'div';
+  /**
+   * The tag to render. Spread straight into JSX and styled tag-agnostically, so
+   * every element in {@link TextElement} renders correctly — see `elements.ts`
+   * for why this is a curated list and not every intrinsic element.
+   */
+  as?: TextElement;
   size?: 'small' | 'medium' | 'large' | 'default';
   children: React.ReactNode;
 }

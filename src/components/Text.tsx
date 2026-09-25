@@ -2,9 +2,11 @@ import * as React from 'react';
 
 import style from './Text.module.css';
 import { cl } from '@_linked/react/utils/ClassNames';
+import type { TextElement } from './elements.js';
 
 interface TextProps extends React.HtmlHTMLAttributes<HTMLElement> {
-  as?: 'span' | 'label' | 'p' | 'div';
+  /** The tag to render — see {@link TextElement}. */
+  as?: TextElement;
   size?: 'small' | 'medium' | 'large' | 'default';
   children: React.ReactNode;
 }

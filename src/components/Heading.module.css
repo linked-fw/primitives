@@ -1,83 +1,81 @@
-h1 {
-  &.Root {
-    font-size: var(--heading-1-font-size);
-    font-family: var(--heading-1-font-family);
-    font-weight: var(--heading-1-font-weight);
-    line-height: var(--heading-1-line-height);
-    letter-spacing: var(--heading-1-letter-spacing);
-    color: var(--heading-1-color);
-    font-style: var(--heading-1-font-style);
-    margin-top: var(--heading-1-margin-top);
-    margin-bottom: var(--heading-1-margin-bottom);
-  }
+/* Two selectors per level: the tag itself (an `h2` is an h2, no extra props
+   needed) and an explicit `level` class for a heading that is visual rather
+   than semantic — `<Heading as="p" level={2}>` on a stat card. */
+
+h1.Root,
+.Root.level1 {
+  font-size: var(--heading-1-font-size);
+  font-family: var(--heading-1-font-family);
+  font-weight: var(--heading-1-font-weight);
+  line-height: var(--heading-1-line-height);
+  letter-spacing: var(--heading-1-letter-spacing);
+  color: var(--heading-1-color);
+  font-style: var(--heading-1-font-style);
+  margin-top: var(--heading-1-margin-top);
+  margin-bottom: var(--heading-1-margin-bottom);
 }
 
-h2 {
-  &.Root {
-    font-size: var(--heading-2-font-size);
-    font-family: var(--heading-2-font-family);
-    font-weight: var(--heading-2-font-weight);
-    line-height: var(--heading-2-line-height);
-    letter-spacing: var(--heading-2-letter-spacing);
-    color: var(--heading-2-color);
-    font-style: var(--heading-2-font-style);
-    margin-top: var(--heading-2-margin-top);
-    margin-bottom: var(--heading-2-margin-bottom);
-  }
+h2.Root,
+.Root.level2 {
+  font-size: var(--heading-2-font-size);
+  font-family: var(--heading-2-font-family);
+  font-weight: var(--heading-2-font-weight);
+  line-height: var(--heading-2-line-height);
+  letter-spacing: var(--heading-2-letter-spacing);
+  color: var(--heading-2-color);
+  font-style: var(--heading-2-font-style);
+  margin-top: var(--heading-2-margin-top);
+  margin-bottom: var(--heading-2-margin-bottom);
 }
 
-h3 {
-  &.Root {
-    font-size: var(--heading-3-font-size);
-    font-family: var(--heading-3-font-family);
-    font-weight: var(--heading-3-font-weight);
-    line-height: var(--heading-3-line-height);
-    letter-spacing: var(--heading-3-letter-spacing);
-    color: var(--heading-3-color);
-    font-style: var(--heading-3-font-style);
-    margin-top: var(--heading-3-margin-top);
-    margin-bottom: var(--heading-3-margin-bottom);
-  }
+h3.Root,
+.Root.level3 {
+  font-size: var(--heading-3-font-size);
+  font-family: var(--heading-3-font-family);
+  font-weight: var(--heading-3-font-weight);
+  line-height: var(--heading-3-line-height);
+  letter-spacing: var(--heading-3-letter-spacing);
+  color: var(--heading-3-color);
+  font-style: var(--heading-3-font-style);
+  margin-top: var(--heading-3-margin-top);
+  margin-bottom: var(--heading-3-margin-bottom);
 }
 
-h4 {
-  &.Root {
-    font-size: var(--heading-4-font-size);
-    font-family: var(--heading-4-font-family);
-    font-weight: var(--heading-4-font-weight);
-    line-height: var(--heading-4-line-height);
-    letter-spacing: var(--heading-4-letter-spacing);
-    color: var(--heading-4-color);
-    font-style: var(--heading-4-font-style);
-    margin-top: var(--heading-4-margin-top);
-    margin-bottom: var(--heading-4-margin-bottom);
-  }
+h4.Root,
+.Root.level4 {
+  font-size: var(--heading-4-font-size);
+  font-family: var(--heading-4-font-family);
+  font-weight: var(--heading-4-font-weight);
+  line-height: var(--heading-4-line-height);
+  letter-spacing: var(--heading-4-letter-spacing);
+  color: var(--heading-4-color);
+  font-style: var(--heading-4-font-style);
+  margin-top: var(--heading-4-margin-top);
+  margin-bottom: var(--heading-4-margin-bottom);
 }
 
-h5 {
-  &.Root {
-    font-size: var(--heading-5-font-size);
-    font-family: var(--heading-5-font-family);
-    font-weight: var(--heading-5-font-weight);
-    line-height: var(--heading-5-line-height);
-    letter-spacing: var(--heading-5-letter-spacing);
-    color: var(--heading-5-color);
-    font-style: var(--heading-5-font-style);
-    margin-top: var(--heading-5-margin-top);
-    margin-bottom: var(--heading-5-margin-bottom);
-  }
+h5.Root,
+.Root.level5 {
+  font-size: var(--heading-5-font-size);
+  font-family: var(--heading-5-font-family);
+  font-weight: var(--heading-5-font-weight);
+  line-height: var(--heading-5-line-height);
+  letter-spacing: var(--heading-5-letter-spacing);
+  color: var(--heading-5-color);
+  font-style: var(--heading-5-font-style);
+  margin-top: var(--heading-5-margin-top);
+  margin-bottom: var(--heading-5-margin-bottom);
 }
 
-h6 {
-  &.Root {
-    font-size: var(--heading-6-font-size);
-    font-family: var(--heading-6-font-family);
-    font-weight: var(--heading-6-font-weight);
-    line-height: var(--heading-6-line-height);
-    letter-spacing: var(--heading-6-letter-spacing);
-    color: var(--heading-6-color);
-    font-style: var(--heading-6-font-style);
-    margin-top: var(--heading-6-margin-top);
-    margin-bottom: var(--heading-6-margin-bottom);
-  }
+h6.Root,
+.Root.level6 {
+  font-size: var(--heading-6-font-size);
+  font-family: var(--heading-6-font-family);
+  font-weight: var(--heading-6-font-weight);
+  line-height: var(--heading-6-line-height);
+  letter-spacing: var(--heading-6-letter-spacing);
+  color: var(--heading-6-color);
+  font-style: var(--heading-6-font-style);
+  margin-top: var(--heading-6-margin-top);
+  margin-bottom: var(--heading-6-margin-bottom);
 }
