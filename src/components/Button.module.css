@@ -220,6 +220,56 @@
     }
   }
 
+  /* Destructive. Reads the intent family rather than a red primitive, so an app that
+     restyles what "danger" looks like restyles this too; the literal is the last-resort
+     fallback for a theme that defines neither, same contract as Badge. */
+  &.danger {
+    &.solid {
+      background: var(--button-danger-bg, var(--intent-danger-icon, #dc2626));
+      color: var(--button-danger-color, var(--control-text-contrast, #fff));
+      border-color: var(--button-danger-bg, var(--intent-danger-icon, #dc2626));
+
+      &:hover {
+        background: var(
+          --button-danger-bg-hover,
+          var(--intent-danger-text, #b91c1c)
+        );
+        color: var(--button-danger-color-hover, var(--control-text-contrast, #fff));
+      }
+    }
+
+    &.outline {
+      background: transparent;
+      color: var(--button-danger-bg, var(--intent-danger-icon, #dc2626));
+      border: 1px solid
+        var(--button-danger-border, var(--intent-danger-border, #dc2626));
+
+      &:hover {
+        background: var(--button-danger-bg, var(--intent-danger-icon, #dc2626));
+        color: var(--button-danger-color, var(--control-text-contrast, #fff));
+      }
+    }
+
+    &.ghost {
+      background: transparent;
+      color: var(--button-danger-bg, var(--intent-danger-icon, #dc2626));
+
+      &:hover {
+        background: var(--button-danger-bg, var(--intent-danger-icon, #dc2626));
+        color: var(--button-danger-color, var(--control-text-contrast, #fff));
+      }
+    }
+
+    &.link {
+      background: transparent;
+      color: var(--button-danger-bg, var(--intent-danger-icon, #dc2626));
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
   /* size: 'small' | 'medium' | 'large' || 'default'*/
   &.small {
     padding: var(--button-padding-sm-y) var(--button-padding-sm-x);

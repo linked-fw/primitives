@@ -8,7 +8,13 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   asChild?: boolean;
   variant?: 'solid' | 'outline' | 'ghost' | 'link';
-  color?: 'primary' | 'secondary' | 'tertiary';
+  /**
+   * Which colour family the button speaks in. `danger` is the destructive one — a
+   * statement about consequence, and a Button prop rather than a class a caller adds,
+   * because the colour classes here are compound (`.Root.primary.solid`) and a bare
+   * class handed in through `className` loses the cascade to them every time.
+   */
+  color?: 'primary' | 'secondary' | 'tertiary' | 'danger';
   size?: 'small' | 'medium' | 'large' | 'default';
 }
 

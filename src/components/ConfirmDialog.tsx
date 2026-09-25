@@ -14,7 +14,10 @@ export interface ConfirmDialogProps {
   cancelText?: string;
   /**
    * `danger` for a destructive action. Not a colour — a statement about consequence, which
-   * is what `--intent-danger-*` exists to express.
+   * is what `--intent-danger-*` exists to express. It reaches the confirm button as
+   * `<Button color="danger">`, so an app re-skins it through `--button-danger-*` (or the
+   * `--intent-danger-*` family behind it) rather than through a `--confirm-dialog-danger-*`
+   * of its own.
    */
   tone?: 'default' | 'danger';
   /** The confirm action is in flight: both buttons lock. */
@@ -78,8 +81,12 @@ export function ConfirmDialog({
           {/* Not `AlertDialog.Action`: that closes on click, and a confirm which is still
               in flight — or which the caller has disabled — must not. The caller closes it
               by setting `open`. */}
+          {/* `danger` goes through Button's own `color` prop, not a class of ours:
+              Button's colour rules are compound (`.Root.primary.solid`, 0-3-0) and a
+              single class handed in via `className` (0-1-0) never wins, which is why
+              `tone="danger"` rendered in the primary colour before. */}
           <Button
-            className={cl(tone === 'danger' && style.danger)}
+            color={tone === 'danger' ? 'danger' : 'primary'}
             onClick={onConfirm}
             disabled={isLoading || confirmDisabled}
           >
