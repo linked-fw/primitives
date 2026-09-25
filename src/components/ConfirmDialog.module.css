@@ -8,15 +8,3 @@
 .wide {
   max-width: var(--confirm-dialog-width-wide, 56rem);
 }
-
-/* Destructive confirmation. Reads the intent family rather than a red primitive, so an app
-   that restyles what "danger" looks like restyles this too. */
-.danger {
-  background: var(--confirm-dialog-danger-bg, var(--intent-danger-icon));
-  border-color: var(--confirm-dialog-danger-border, var(--intent-danger-border));
-  color: var(--confirm-dialog-danger-text, var(--color-white));
-}
-
-.danger:hover:not(:disabled) {
-  background: var(--confirm-dialog-danger-bg-hover, var(--intent-danger-text));
-}
