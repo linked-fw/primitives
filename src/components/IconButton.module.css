@@ -1,8 +1,6 @@
 @theme static {
   --spacing: 0.25rem;
 }
-@import './helpers/mixins.css';
-
 .Root {
   display: inline-flex;
   align-items: center;
@@ -19,7 +17,9 @@
   gap: var(--iconbutton-gap, --spacing(2));
 
   &:focus-visible {
-    @mixin focus;
+    outline: var(--control-outline-width) solid transparent;
+    outline-offset: var(--control-outline-offset);
+    box-shadow: 0 0 0 var(--control-outline-width) var(--control-outline-color);
   }
 
   /* color: 'primary' | 'secondary' | 'tertiary'*/
@@ -145,6 +145,7 @@
 
   /* disabled*/
   &.disabled {
-    @mixin disabled;
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 }

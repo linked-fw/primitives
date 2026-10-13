@@ -1,7 +1,6 @@
 @theme static {
   --spacing: 0.25rem;
 }
-@import './helpers/mixins.css';
 .Root {
   display: flex;
   background-color: var(--menubar-bg, var(--popover-bg));
@@ -79,7 +78,8 @@
   }
 
   &[data-disabled] {
-    @mixin disabled;
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 
   &.Inset {

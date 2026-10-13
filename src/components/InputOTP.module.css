@@ -1,12 +1,11 @@
-@import './helpers/mixins.css';
-
 .Root {
   display: flex;
   align-items: center;
   gap: var(--otp-gap, 0.5rem);
 
   &:has(:disabled) {
-    @mixin disabled;
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 
   &.invalid .Slot {
@@ -47,7 +46,9 @@
   }
 
   &.active {
-    @mixin focus;
+    outline: var(--control-outline-width) solid transparent;
+    outline-offset: var(--control-outline-offset);
+    box-shadow: 0 0 0 var(--control-outline-width) var(--control-outline-color);
     background-color: var(--input-bg-focus, var(--field-bg-focus));
     border-color: var(--input-border-focus, var(--field-border-focus));
   }
