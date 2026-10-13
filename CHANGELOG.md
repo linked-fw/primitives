@@ -1,5 +1,11 @@
 # @\_linked/primitives
 
+## 1.8.2
+
+### Patch Changes
+
+- [#80](https://github.com/linked-fw/primitives/pull/80) [`5377e30`](https://github.com/linked-fw/primitives/commit/5377e30634e7a1e77b52014b525950f5f322a0a8) Thanks [@flyon](https://github.com/flyon)! - Focus rings and disabled styles work again. The components' CSS used `@define-mixin` / `@mixin` (postcss-mixins), which no consumer's pipeline expands, so the browser dropped those lines: no `:focus-visible` ring and no disabled opacity or cursor on Button, IconButton, Input, Textarea, Select, Checkbox, Switch, Tabs, Dialog and the other controls. The declarations are now plain CSS, and `components/helpers/mixins.css` is gone.
+
 ## 1.8.1
 
 ### Patch Changes
