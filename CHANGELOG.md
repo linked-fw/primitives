@@ -1,5 +1,11 @@
 # @\_linked/primitives
 
+## 1.8.1
+
+### Patch Changes
+
+- [#78](https://github.com/linked-fw/primitives/pull/78) [`8f13b75`](https://github.com/linked-fw/primitives/commit/8f13b75cad664ebce4d248c49ea63c26b0a664c3) Thanks [@flyon](https://github.com/flyon)! - `Form` and its parts (`Root`, `Field`, `Label`, `Control`, `Message`, `ValidityState`, `Submit`) now have explicit types. The emitted declarations name `typeof FormPrimitive.X` from `@radix-ui/react-form` rather than inferred types inside its nested dependencies. Before this, building the package inside an app whose install could not hoist react-form's exact radix dependencies failed with TS2742. The public types are unchanged.
+
 ## 1.8.0
 
 ### Minor Changes
