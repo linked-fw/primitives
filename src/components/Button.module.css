@@ -1,5 +1,3 @@
-@import './helpers/mixins.css';
-
 /* Button component now uses semantic theme variables from theme-defaults.css */
 
 /* $colors: (*/
@@ -38,7 +36,9 @@
   height: var(--button-height-md);
 
   &:focus-visible {
-    @mixin focus;
+    outline: var(--control-outline-width) solid transparent;
+    outline-offset: var(--control-outline-offset);
+    box-shadow: 0 0 0 var(--control-outline-width) var(--control-outline-color);
   }
 
   /* // color: 'primary' | 'secondary' | 'tertiary'*/
@@ -291,6 +291,7 @@
 
   /* disabled*/
   &.disabled {
-    @mixin disabled;
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 }

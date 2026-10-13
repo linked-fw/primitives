@@ -1,5 +1,3 @@
-@import './helpers/mixins.css';
-
 .Root {
   font-size: var(--label-font-size, var(--typography-font-size));
   font-weight: var(--label-font-weight, var(--typography-font-weight));

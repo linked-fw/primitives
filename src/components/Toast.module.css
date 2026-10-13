@@ -1,4 +1,3 @@
-@import '../components/helpers/mixins.css';
 @import '@_linked/css/package.css';
 
 .Viewport {
@@ -80,7 +79,9 @@
   transition: var(--transition-normal);
 
   &:focus-visible {
-    @mixin focus;
+    outline: var(--control-outline-width) solid transparent;
+    outline-offset: var(--control-outline-offset);
+    box-shadow: 0 0 0 var(--control-outline-width) var(--control-outline-color);
   }
 
   svg {

@@ -1,4 +1,3 @@
-@import './helpers/mixins.css';
 @import '@_linked/css/package.css';
 
 .Trigger {
@@ -29,12 +28,15 @@
   }
 
   &:focus-visible {
-    @mixin focus;
+    outline: var(--control-outline-width) solid transparent;
+    outline-offset: var(--control-outline-offset);
+    box-shadow: 0 0 0 var(--control-outline-width) var(--control-outline-color);
     background-color: var(--select-trigger-bg-focus, var(--field-bg-focus));
   }
 
   &:disabled {
-    @mixin disabled;
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 
   &[data-placeholder] {
@@ -126,7 +128,8 @@
   transition: var(--transition-fast);
 
   &[data-disabled] {
-    @mixin disabled;
+    cursor: not-allowed;
+    opacity: 0.5;
     cursor: not-allowed;
   }
 
