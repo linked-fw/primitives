@@ -12,6 +12,7 @@ import { Command as CommandPrimitive } from 'cmdk';
 import { Button } from './Button.js';
 import style from './MultiSelect.module.css';
 import { cl } from '@_linked/react/utils/ClassNames';
+import { sharedState } from '@_linked/core/utils/sharedState';
 
 type MultiSelectorProps = {
   values: string[];
@@ -30,7 +31,14 @@ interface MultiSelectContextProps {
   setActiveIndex: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const MultiSelectContext = createContext<MultiSelectContextProps | null>(null);
+// Shared across copies of this module, so a Root and its parts from different copies still meet.
+const { MultiSelectContext } = sharedState(
+  '@_linked/primitives',
+  'MultiSelect.contexts',
+  () => ({
+    MultiSelectContext: createContext<MultiSelectContextProps | null>(null),
+  }),
+);
 
 const useMultiSelect = () => {
   const context = useContext(MultiSelectContext);

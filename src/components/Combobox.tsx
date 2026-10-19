@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as PopoverPrimitive from '@radix-ui/react-popover';
 import style from './Combobox.module.css';
 import { cl } from '@_linked/react/utils/ClassNames';
+import { sharedState } from '@_linked/core/utils/sharedState';
 import {
   Root as CommandRoot,
   Input as CommandInput,
@@ -24,7 +25,10 @@ interface ComboboxContextValue {
   setOpen: (open: boolean) => void;
 }
 
-const ComboboxContext = React.createContext<ComboboxContextValue | null>(null);
+// Shared across copies of this module, so a Root and its parts from different copies still meet.
+const { ComboboxContext } = sharedState('@_linked/primitives', 'Combobox.contexts', () => ({
+  ComboboxContext: React.createContext<ComboboxContextValue | null>(null),
+}));
 
 function useCombobox() {
   const context = React.useContext(ComboboxContext);
