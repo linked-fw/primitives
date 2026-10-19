@@ -1,6 +1,7 @@
 // Inspired by react-hot-toast library
 // https://ui.shadcn.com/docs/components/toast
 import * as React from 'react';
+import { sharedState } from '@_linked/core/utils/sharedState';
 
 import type { ToastActionElement, ToastProps } from '../components/Toast.js';
 
@@ -21,11 +22,9 @@ const actionTypes = {
   REMOVE_TOAST: 'REMOVE_TOAST',
 } as const;
 
-let count = 0;
-
 function genId() {
-  count = (count + 1) % Number.MAX_SAFE_INTEGER;
-  return count.toString();
+  store.count = (store.count + 1) % Number.MAX_SAFE_INTEGER;
+  return store.count.toString();
 }
 
 type ActionType = typeof actionTypes;
@@ -52,22 +51,46 @@ interface State {
   toasts: ToasterToast[];
 }
 
-const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>();
+interface ToastStore {
+  /** The last toast id handed out; shared so ids from two copies never collide. */
+  count: number;
+  listeners: Array<(state: State) => void>;
+  memoryState: State;
+  toastTimeouts: Map<string, ReturnType<typeof setTimeout>>;
+}
+
+/**
+ * The toast store lives on `globalThis` (core's `sharedState`), not in module scope, so
+ * `toast()` from one copy of this module reaches a `<Toaster/>` rendered by another — e.g.
+ * Vite's SSR runner and Node under `linked start`, or two browser bundles. A container made
+ * by an older copy may lack a field; `ensureFields` fills it rather than assuming the layout.
+ */
+const store = ensureFields(
+  sharedState<Partial<ToastStore>>('@_linked/primitives', 'toast', () => ({})),
+);
+
+function ensureFields(s: Partial<ToastStore>): ToastStore {
+  s.count ??= 0;
+  s.listeners ??= [];
+  s.memoryState ??= { toasts: [] };
+  s.toastTimeouts ??= new Map();
+  return s as ToastStore;
+}
 
 const addToRemoveQueue = (toastId: string) => {
-  if (toastTimeouts.has(toastId)) {
+  if (store.toastTimeouts.has(toastId)) {
     return;
   }
 
   const timeout = setTimeout(() => {
-    toastTimeouts.delete(toastId);
+    store.toastTimeouts.delete(toastId);
     dispatch({
       type: 'REMOVE_TOAST',
       toastId: toastId,
     });
   }, TOAST_REMOVE_DELAY);
 
-  toastTimeouts.set(toastId, timeout);
+  store.toastTimeouts.set(toastId, timeout);
 };
 
 export const reducer = (state: State, action: Action): State => {
@@ -125,14 +148,10 @@ export const reducer = (state: State, action: Action): State => {
   }
 };
 
-const listeners: Array<(state: State) => void> = [];
-
-let memoryState: State = { toasts: [] };
-
 function dispatch(action: Action) {
-  memoryState = reducer(memoryState, action);
-  listeners.forEach((listener) => {
-    listener(memoryState);
+  store.memoryState = reducer(store.memoryState, action);
+  store.listeners.forEach((listener) => {
+    listener(store.memoryState);
   });
 }
 
@@ -168,14 +187,14 @@ function toast({ ...props }: Toast) {
 }
 
 function useToast() {
-  const [state, setState] = React.useState<State>(memoryState);
+  const [state, setState] = React.useState<State>(store.memoryState);
 
   React.useEffect(() => {
-    listeners.push(setState);
+    store.listeners.push(setState);
     return () => {
-      const index = listeners.indexOf(setState);
+      const index = store.listeners.indexOf(setState);
       if (index > -1) {
-        listeners.splice(index, 1);
+        store.listeners.splice(index, 1);
       }
     };
   }, [state]);
