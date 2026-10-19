@@ -3,15 +3,17 @@ date: 2026-10-19
 summary: >
   Backlog 001 done: the toast store (listeners, memory state, removal timers, id counter) and the
   Combobox and MultiSelect contexts live on `globalThis` through core's `sharedState`, so
-  `toast()` from one copy of the package reaches a `<Toaster/>` from another. Needs
-  `@_linked/core` 2.36.0 or later.
+  `toast()` from one copy of the package reaches a `<Toaster/>` from another. Released in
+  `@_linked/primitives` 1.8.3; needs `@_linked/core` 2.36.0 or later.
 ---
 
 # 001 — Toast store across copies
 
-Replaces backlog 001. The convention it follows:
-[shared state and error brands](https://github.com/linked-fw/cli/blob/main/docs/architecture/shared-state-and-error-brands.md)
-(cli report 020).
+Replaces backlog 001 (removed). Released in `@_linked/primitives` 1.8.3 (patch). The convention it
+follows is specified in
+[cli architecture: shared state and error brands](https://github.com/linked-fw/cli/blob/main/docs/architecture/shared-state-and-error-brands.md);
+the cross-repo work that introduced it is recorded in
+[cli report 020](https://github.com/linked-fw/cli/blob/main/docs/reports/020-shared-state-and-error-brands.md).
 
 ## Why
 
@@ -32,7 +34,17 @@ heard of it. No error, the toast just did not show.
 | `test/shared-state.test.mjs` | New: imports the built `lib/esm/hooks/use-toast.js` twice (plain and `?copy`). |
 | `.changeset/shared-toast-store.md` | Patch. |
 
-The public API is unchanged: `toast`, `useToast` and `reducer` keep their signatures.
+The public API is unchanged: `toast`, `useToast` and `reducer` keep their signatures. Usage is
+the same as before; what changed is that it now works across copies:
+
+```tsx
+// rendered once by the app shell (may be copy A of @_linked/primitives)
+<Toaster />
+
+// anywhere else, even code that resolved copy B
+import {toast} from '@_linked/primitives';
+toast({title: 'Saved'});   // shows in the Toaster above
+```
 
 ### Global keys
 
@@ -82,3 +94,14 @@ as it should).
   component modules import CSS modules.
 - A copy older than this release still keeps its own module-level store; it shares nothing until
   every copy in the runtime is on this version or later.
+
+## Follow-ups
+
+None. Other packages adopting the convention track their own work; see cli report 020.
+
+## PRs
+
+- https://github.com/linked-fw/primitives/pull/83 — backlog 001: the state a second copy of the
+  package does not see (toast store, Combobox and MultiSelect contexts).
+- https://github.com/linked-fw/primitives/pull/84 — the fix described here; replaces backlog 001.
+- https://github.com/linked-fw/primitives/pull/85 — release 1.8.3.
