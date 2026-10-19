@@ -1,5 +1,11 @@
 # @\_linked/primitives
 
+## 1.8.3
+
+### Patch Changes
+
+- [#84](https://github.com/linked-fw/primitives/pull/84) [`dd1e2fe`](https://github.com/linked-fw/primitives/commit/dd1e2fe3e357e591966e49abf56821742daec4ef) Thanks [@flyon](https://github.com/flyon)! - The toast store and the Combobox and MultiSelect contexts are kept on `globalThis` through core's `sharedState`, so `toast()` from one copy of the package reaches a `<Toaster/>` rendered by another. Requires `@_linked/core` 2.36.0 or later.
+
 ## 1.8.2
 
 ### Patch Changes
