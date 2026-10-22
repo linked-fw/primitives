@@ -1,5 +1,16 @@
 # @\_linked/primitives
 
+## 1.9.0
+
+### Minor Changes
+
+- [#87](https://github.com/linked-fw/primitives/pull/87) [`5b9f504`](https://github.com/linked-fw/primitives/commit/5b9f504e80d61791ffc6836654ad40387224009f) Thanks [@flyon](https://github.com/flyon)! - The ontology registers without data. `src/data/primitives.json` held an empty graph, so it is deleted and
+  the ontology no longer passes a `loadData`; apps stop logging that its data "is not Turtle text;
+  skipped".
+  
+  - **Breaking:** the `loadData` export of `ontologies/primitives` is removed, and `data/primitives.json` is no
+    longer in `lib/esm/`.
+
 ## 1.8.3
 
 ### Patch Changes
