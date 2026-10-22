@@ -1,7 +1,6 @@
 import { Prefix } from '@_linked/core/utils/Prefix';
 import { createNameSpace } from '@_linked/core/utils/NameSpace';
 
-const dataFile = '../data/primitives.json';
 
 /**
  * First-party ontologies live on linked.cm: `https://linked.cm/ont/{ontologySlug}/`, and a
@@ -13,13 +12,6 @@ const dataFile = '../data/primitives.json';
 const base = 'https://linked.cm/ont/primitives/';
 
 Prefix.add('primitives', base);
-
-export const loadData = () => {
-  //@ts-ignore
-  return import('../data/primitives.json', {
-    with: { type: 'json' },
-  }).then((data) => data.default);
-};
 
 export const ns = createNameSpace(base);
 export const _self = ns('');
