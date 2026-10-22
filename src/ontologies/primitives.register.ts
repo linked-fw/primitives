@@ -11,7 +11,7 @@
  * From a sibling module the same import is ordinary and survives.
  */
 import * as terms from './primitives.js';
-import {loadData, ns} from './primitives.js';
+import {ns} from './primitives.js';
 import {linkedOntology} from '../package.js';
 
-linkedOntology(terms, ns, 'primitives', loadData, '../data/primitives.json');
+linkedOntology(terms, ns, 'primitives');
