@@ -1,5 +1,11 @@
 # @\_linked/primitives
 
+## 1.9.1
+
+### Patch Changes
+
+- [#89](https://github.com/linked-fw/primitives/pull/89) [`1dd282a`](https://github.com/linked-fw/primitives/commit/1dd282a5186998738c0018b790c0ee97c2df54f3) Thanks [@flyon](https://github.com/flyon)! - License: MIT (data under its original license)
+
 ## 1.9.0
 
 ### Minor Changes
