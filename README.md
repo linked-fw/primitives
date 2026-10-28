@@ -11,7 +11,7 @@ Every component in this package is three things and no more:
    [input-otp](https://github.com/guilhermerodz/input-otp) for `InputOTP`,
    [vaul](https://vaul.emilkowal.ski)
    for `Drawer`, or hand-written where none of those has an answer (`Input`, `Textarea`,
-   `Heading`, `Text`, `Spinner`).
+   `Heading`, `Text`, `Spinner`, `RelativeTime`).
 2. **A CSS module** that reads design tokens from
    [`@_linked/css`](https://www.npmjs.com/package/@_linked/css) and defines no colours,
    spacing or radii of its own.

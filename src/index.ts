@@ -54,8 +54,11 @@ import './components/ContextMenu.js';
 import './components/Form.js';
 import './components/Toolbar.js';
 import './components/VisuallyHidden.js';
+import './components/RelativeTime.js';
 
 import './hooks/use-toast.js';
+
+import './utils/relativeTime.js';
 
 // The motion presets. Reachable from the entry point so tsc emits them: this package's
 // tsconfig compiles what `index.ts` reaches, not the whole src tree.
