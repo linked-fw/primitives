@@ -1,5 +1,15 @@
 # @\_linked/primitives
 
+## 1.10.0
+
+### Minor Changes
+
+- [#95](https://github.com/linked-fw/primitives/pull/95) [`03a7f2b`](https://github.com/linked-fw/primitives/commit/03a7f2be35298bcb72bb0bb8231ce3b9e8792e62) Thanks [@flyon](https://github.com/flyon)! - Add `RelativeTime` (a `<time>` showing "3 days ago" with the exact local time on hover) and the `relativeTime` / `exactTime` formatters in `utils/relativeTime`.
+
+### Patch Changes
+
+- [#95](https://github.com/linked-fw/primitives/pull/95) [`2018648`](https://github.com/linked-fw/primitives/commit/2018648b7a47bd745c40e772cd29eb7ee9f2bdca) Thanks [@flyon](https://github.com/flyon)! - `package.json` says what this package is in `"linked": {"kind": "library"}` instead of `"linkedPackage": true`, which the CLI and server no longer read.
+
 ## 1.9.1
 
 ### Patch Changes

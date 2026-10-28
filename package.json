@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/linked-fw/primitives.git"
   },
-  "version": "1.9.1",
+  "version": "1.10.0",
   "type": "module",
   "packageManager": "npm@12.2.0",
   "linked": {
