@@ -1,6 +1,6 @@
+import './ontologies/index.js';
 import './theme.css';
 import './types.js';
-import './ontologies/primitives.register.js';
 
 //SHAPES FIRST
 // import './shapes/YourShape.js';
