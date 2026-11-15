@@ -3,14 +3,14 @@
 .Overlay {
   position: fixed;
   inset: 0;
-  z-index: var(--z-modal);
+  z-index: var(--layer-modal);
   background-color: var(--drawer-overlay-bg, var(--modal-overlay-bg));
 }
 
 .Content {
   position: fixed;
   inset-x: 0;
-  z-index: var(--z-modal);
+  z-index: var(--layer-modal);
   display: flex;
   flex-direction: column;
   border-radius: var(--drawer-radius, var(--modal-radius));

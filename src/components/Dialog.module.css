@@ -7,7 +7,7 @@
   animation: overlayShow
     var(--dialog-animation-duration, var(--transition-duration-normal))
     var(--transition-easing);
-  z-index: var(--z-modal);
+  z-index: var(--layer-modal);
 }
 
 .Content {
@@ -26,7 +26,7 @@
   animation: var(--dialog-animation-name, contentShow)
     var(--dialog-animation-duration, var(--transition-duration-normal))
     var(--transition-easing);
-  z-index: calc(var(--z-modal) + 1);
+  z-index: calc(var(--layer-modal) + 1);
 }
 
 .Close {
