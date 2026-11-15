@@ -5,6 +5,8 @@
   animation: overlayShow
     var(--alertdialog-animation-duration, var(--transition-duration-normal))
     var(--transition-easing);
+  /* A layer of its own: without one the portal paints below any positioned element with a z-index (a sticky bar). */
+  z-index: var(--layer-modal);
 }
 
 .Content {
@@ -27,6 +29,7 @@
   animation: var(--alertdialog-animation-name, contentShow)
     var(--alertdialog-animation-duration, var(--transition-duration-normal))
     var(--transition-easing);
+  z-index: calc(var(--layer-modal) + 1);
 }
 
 .Title {
