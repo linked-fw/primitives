@@ -1,0 +1,11 @@
+@prefix primitives: <https://linked.cm/ont/primitives/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+primitives:
+    a owl:Ontology ;
+    dcterms:title "Linked primitives"@en ;
+    dcterms:description "The ontology of the UI component library. It defines no terms yet."@en ;
+    vann:preferredNamespacePrefix "primitives" ;
+    vann:preferredNamespaceUri "https://linked.cm/ont/primitives/" .
