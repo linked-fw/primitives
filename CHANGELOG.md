@@ -1,5 +1,11 @@
 # @\_linked/primitives
 
+## 2.0.0
+
+### Major Changes
+
+- [#104](https://github.com/linked-fw/primitives/pull/104) [`7e77b07`](https://github.com/linked-fw/primitives/commit/7e77b076a8712f384a9e2e122fe338090d9fe3c4) Thanks [@flyon](https://github.com/flyon)! - The package's ontology is declared in `package.json` `linkedOntologies` (`primitives`, namespace `https://linked.cm/ont/primitives/`) with its data in `data/primitives.ttl`, which carries the suggested prefix as `vann:preferredNamespacePrefix`. A generated `ontologies/index` registers it with `registerOntologies`; the package no longer registers the `primitives` prefix (an app adds it to its own prefix map). Removed: `ontologies/primitives.register`, and the `ns`, `_self`, `primitives` and deprecated `radix` exports of `ontologies/primitives` (the ontology defines no terms); `linkedOntology` on the package object, replaced by `registerOntologies`.
+
 ## 1.10.0
 
 ### Minor Changes
